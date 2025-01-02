@@ -1,5 +1,6 @@
 import { create } from 'zustand';
-import { fetchData, Post } from '../../services/apiServices';
+import { fetchData } from '../../services/apiServices';
+import {Post} from '../../types/posts'
 
 interface DataStore {
   data: Post[];

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FlatList, Text, View, StyleSheet } from 'react-native';
-import { Post } from '../services/apiServices';
+import {Post} from '../types/posts'
 
 interface DataListProps {
   data: Post[];

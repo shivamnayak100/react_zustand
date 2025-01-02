@@ -1,12 +1,9 @@
 import axios from 'axios';
+import {Post} from '../types/posts'
 
 const BASE_URL = 'https://jsonplaceholder.typicode.com'; 
 
-export interface Post {
-  id: number;
-  title: string;
-  body: string;
-}
+
 
 export const fetchData = async (): Promise<Post[]> => {
   try {
