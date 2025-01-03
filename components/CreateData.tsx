@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import useDataStore from '../stores/zustand/dataStore';
+import { useNavigation } from '@react-navigation/native';
 
 const CreateData: React.FC = () => {
   const [input, setInput] = useState('');
   const { postData, isLoading, isError, data } = useDataStore();
+  const navigation = useNavigation();
 
   const handlePost = async () => {
-    const data = { value: input };
+    const data = {
+        title: input,
+        body: 'shivam',
+      };
     await postData(data);
+    navigation.goBack();
   };
 
   return (
