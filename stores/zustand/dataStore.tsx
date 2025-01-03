@@ -30,9 +30,9 @@ const useDataStore = create<DataStore>((set) => ({
   postData: async (payload) => {
     set({ isLoading: true, isError: false });
     try {
-      const data = await createData(payload);
+      const response = await createData(payload);
+      await fetchData();
       set((state) => ({
-        data: [...state.data,], 
         isLoading: false,
       }));
     } catch (error) {
