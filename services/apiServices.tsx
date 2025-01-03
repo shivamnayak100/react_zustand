@@ -13,3 +13,13 @@ export const fetchData = async (): Promise<Post[]> => {
     throw new Error((error as Error).message);
   }
 };
+
+export const createData = async (payload): Promise<Post[]> => {
+  try {
+    const response = await axios.post<Post[]>(`${BASE_URL}/posts`, payload ); 
+    return response.data;
+  } catch (error) {
+    throw new Error((error as Error).message);
+  }
+};
+
