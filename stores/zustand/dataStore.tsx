@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { createData, fetchData } from '../../services/apiServices';
 import {Post} from '../../types/posts'
+import { devtools, persist, } from "zustand/middleware";
 
 interface DataStore {
   data: Post[];
@@ -10,7 +11,7 @@ interface DataStore {
   postData: (payload: object) => Promise<void>; 
 }
 
-const useDataStore = create<DataStore>((set) => ({
+const useDataStore = create<DataStore>()(devtools(persist((set) => ({
   data: [],
   isLoading: false,
   isError: false,
@@ -30,7 +31,7 @@ const useDataStore = create<DataStore>((set) => ({
   postData: async (payload) => {
     set({ isLoading: true, isError: false });
     try {
-      const response = await createData(payload);
+      await createData(payload);
       await fetchData();
       set((state) => ({
         isLoading: false,
@@ -40,7 +41,10 @@ const useDataStore = create<DataStore>((set) => ({
       console.error('Post API Error:', error);
     }
   },
-
-}));
+}),
+{
+  name: "data-storage",
+}
+)));
 
 export default useDataStore;
