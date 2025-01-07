@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from './screens/HomeScreen';
-import AddDataScreen from './screens/AddDataScreen';
+import HomeScreen from './src/screens/HomeScreen';
+import AddDataScreen from './src/screens/AddDataScreen';
 
 export type RootStackParamList = {
   Home: undefined; // It means we are not pass any params in this screen.  

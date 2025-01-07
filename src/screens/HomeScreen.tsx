@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import useDataStore from '../stores/zustand/dataStore';
 import DataList from '../components/DataList';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../App';
+import { RootStackParamList } from '../../App';
 
 const HomeScreen: React.FC = () => {
   const { data, isLoading, isError, fetchData } = useDataStore();
